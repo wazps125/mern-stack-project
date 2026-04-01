@@ -4,6 +4,8 @@ import Student from "./models/student.js";
 import studentRout from "./routers/studentRouters.js";
 import userRouters from "./routers/userRouters.js";
 import authenticate from "./middlewares/authenticate.js"
+import dotenv from "dotenv"
+dotenv.config()
 
 
 const app = express();
@@ -13,8 +15,7 @@ app.use(express.json());
 app.use(authenticate)
 
 // MongoDB Atlas URI
-const mongoURI =
-"mongodb://wazmh97_db_user:Cy6e3TxinHEPFZJX@ac-98t74kg-shard-00-00.8iyjxbq.mongodb.net:27017,ac-98t74kg-shard-00-01.8iyjxbq.mongodb.net:27017,ac-98t74kg-shard-00-02.8iyjxbq.mongodb.net:27017/?ssl=true&replicaSet=atlas-r7cduh-shard-0&authSource=admin&appName=Cluster0";
+const mongoURI = process.env.mongoURI_doc
 
 // Connect to MongoDB
 mongoose.connect(mongoURI)
