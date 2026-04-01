@@ -23,8 +23,7 @@ mongoose.connect(mongoURI)
 })
 
 
-// Test GET route
-app.use("/students",studentRout)
+
 app.use("/users",userRouters)
 
 
